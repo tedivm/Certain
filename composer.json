@@ -1,0 +1,20 @@
+{
+    "name": "tedivm/certstatus",
+    "description": "",
+    "keywords": ["SSL"],
+    "homepage": "http://github.com/tedivm/CertStatus",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robert Hafner",
+            "email": "tedivm@tedivm.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {"CertStatus": "src/"}
+    }
+}
