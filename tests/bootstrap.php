@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the CertStatus package.
+ * This file is part of the Certain package.
  *
  * (c) Robert Hafner <tedivm@tedivm.com>
  *
@@ -25,4 +25,4 @@ if (!file_exists($filename)) {
 }
 
 $loader = require $filename;
-$loader->add('CertStatus\\Test', __DIR__);
+$loader->add('Certain\\Test', __DIR__);

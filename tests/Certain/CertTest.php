@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CertStatus package.
+ * This file is part of the Certain package.
  *
  * (c) Robert Hafner <tedivm@tedivm.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace CertStatus\Test;
+namespace Certain\Test;
 
-use CertStatus\Cert;
+use Certain\Cert;
 
 class CertTest extends PHPUnit_Framework_TestCase {
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the CertStatus package.
+ * This file is part of the Certain package.
  *
  * (c) Robert Hafner <tedivm@tedivm.com>
  *
@@ -9,7 +9,7 @@
  */
 
 
-namespace CertStatus;
+namespace Certain;
 
 /**
  * Cert
