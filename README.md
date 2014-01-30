@@ -16,7 +16,7 @@ backwards compatible.
 
 ```
 "require": {
-  "tedivm/Certain": "0.1.*"
+  "tedivm/certain": "0.1.*"
 }
 ```
 
