@@ -15,7 +15,7 @@ use Certain\Cert;
 
 class CertTest extends PHPUnit_Framework_TestCase {
 
-    static public function getTestCert($name)
+    static public function getTestChain($name)
     {
         $path = TESTING_DIRECTORY . '/Certs/' . $name . '/';
         if(!file_exists(($path) || !is_dir($path))
