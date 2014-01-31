@@ -11,23 +11,43 @@
 
 namespace Certain\Test;
 
+//use Certain\Cert;
 use Certain\CertFactory;
 
-class CertFactoryTest extends \PHPUnit_Framework_TestCase {
-
-    public function testGetCertFromFiles()
+class CertTest extends \PHPUnit_Framework_TestCase
+{
+    public static function getTestChain($name)
     {
-        $path = TESTING_DIRECTORY . '/Certs/Google/';
+        $path = TESTING_DIRECTORY . '/Certs/' . $name . '/';
         if(!file_exists($path) || !is_dir($path))
             throw new \Exception('Requested certificate files not found at: ' . $path);
 
-        $certPaths = array(
-            $path . 'cert0.crt',
-            $path . 'cert1.crt',
-            $path . 'cert2.crt'
-        );
+        $certPaths = array();
 
-        $cert = CertFactory::getCertFromFiles($certPaths);
+        $files = scandir($path);
+        foreach ($files as $file) {
+            if($file == '.' || $file == '..')
+                continue;
+
+            $certPaths[] = $path . $file;
+        }
+
+        return CertFactory::getCertFromFiles($certPaths);
+    }
+
+    public function testSetFromChain()
+    {
+
+    }
+
+    public function testSetHost()
+    {
+
+    }
+
+    public function testGetParent()
+    {
+        $cert = $this->getTestChain('Google');
         $this->assertInstanceOf('\Certain\Cert', $cert, 'getCertFromFiles returns Cert.');
 
         $parent = $cert->getParent();
@@ -35,11 +55,7 @@ class CertFactoryTest extends \PHPUnit_Framework_TestCase {
 
         $grandParent = $parent->getParent();
         $this->assertInstanceOf('\Certain\Cert', $grandParent, 'getCertFromFiles properly populates grand parent');
+
     }
 
-    public function testGetCertFromServer()
-    {
-        $cert = CertFactory::getCertFromServer('www.google.com', 443);
-        $this->assertInstanceOf('\Certain\Cert', $cert, 'getCertFromFiles returns Cert.');
-    }
 }

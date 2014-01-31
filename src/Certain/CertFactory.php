@@ -8,9 +8,7 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Certain;
-
 
 /**
  * CertFactory
@@ -20,19 +18,18 @@ namespace Certain;
 class CertFactory
 {
 
-    static public function getCertFromFiles($path)
+    public static function getCertFromFiles($path)
     {
         if(!is_array(($path)))
             $path = array($path);
 
         $chain = array();
-        foreach($path as $index => $certPath)
-        {
-            if(!file_exists($certPath)) {
+        foreach ($path as $index => $certPath) {
+            if (!file_exists($certPath)) {
                 return false;
             }
 
-            if(!is_readable($certPath)) {
+            if (!is_readable($certPath)) {
                 return false;
             }
 
@@ -45,11 +42,12 @@ class CertFactory
 
         $cert = new Cert();
         $cert->setFromChain($chain);
+
         return $cert;
 
     }
 
-    static public function getCertFromServer($host, $port = 443)
+    public static function getCertFromServer($host, $port = 443)
     {
         $options = array();
         $options['ssl']['capture_peer_cert_chain'] = true;
@@ -63,14 +61,14 @@ class CertFactory
 
         $sslParms = $params['options']['ssl'];
 
-        if(!isset($sslParms['peer_certificate_chain']) || count($sslParms['peer_certificate_chain']) < 1) {
+        if (!isset($sslParms['peer_certificate_chain']) || count($sslParms['peer_certificate_chain']) < 1) {
             $rawChain = array($params['options']['ssl']['peer_certificate']);
-        }else{
+        } else {
             $rawChain = $params['options']['ssl']['peer_certificate_chain'];
         }
 
         $chain = array();
-        foreach($rawChain as $rawCert) {
+        foreach ($rawChain as $rawCert) {
             $rawCertInfo = openssl_x509_parse($rawCert);
             $chain[] = array($rawCert, $rawCertInfo);
         }
@@ -78,6 +76,7 @@ class CertFactory
         $cert =  new Cert();
         $cert->setFromChain($chain);
         $cert->setHost($host);
+
         return $cert;
     }
 }

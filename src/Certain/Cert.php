@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Certain;
 
 /**
@@ -19,13 +18,11 @@ namespace Certain;
 class Cert
 {
 
-
     protected $parent = false;
 
     protected $host;
 
     protected $parameters;
-
 
     public function setFromChain($chain)
     {
@@ -33,7 +30,7 @@ class Cert
         $this->parameters = $self[0];
         $this->cert = $self[1];
 
-        if(count($chain) > 0) {
+        if (count($chain) > 0) {
             $this->parent = new self();
             $this->parent->setFromChain($chain);
         }
@@ -49,8 +46,6 @@ class Cert
         return isset($this->parent) ? $this->parent : false;
     }
 
-
-
     public function verify()
     {
     }
@@ -59,7 +54,5 @@ class Cert
     {
 
     }
-
-
 
 }
