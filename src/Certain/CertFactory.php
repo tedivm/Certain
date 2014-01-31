@@ -36,15 +36,15 @@ class CertFactory
                 return false;
             }
 
-            file_get_contents($certPath);
-            $x509 = openssl_x509_read($certPath);
+            $certFile = file_get_contents($certPath);
+            $x509 = openssl_x509_read($certFile);
             $certParameters = openssl_x509_parse($x509);
 
             $chain[$index] = array($x509, $certParameters);
         }
 
         $cert = new Cert();
-        $cert->setFromChain($cert);
+        $cert->setFromChain($chain);
         return $cert;
 
     }
