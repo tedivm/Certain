@@ -12,14 +12,15 @@
 namespace Certain\Test;
 
 use Certain\Cert;
+use Certain\CertFactory;
 
-class CertTest extends PHPUnit_Framework_TestCase {
+class CertFactoryTest extends PHPUnit_Framework_TestCase {
 
     static public function getTestChain($name)
     {
         $path = TESTING_DIRECTORY . '/Certs/' . $name . '/';
         if(!file_exists(($path) || !is_dir($path))
-            throw new \Exception('Requested certificate files not found at: ' . $path);
+        throw new \Exception('Requested certificate files not found at: ' . $path);
 
         $certPaths = array();
 
@@ -35,21 +36,31 @@ class CertTest extends PHPUnit_Framework_TestCase {
         return CertFactory::getCertFromFiles($certPaths);
     }
 
-
-    public function testSetFromChain()
+    public function testGetCertFromFiles()
     {
+        $path = TESTING_DIRECTORY . '/Certs/' . $name . '/';
+        if(!file_exists(($path) || !is_dir($path))
+        throw new \Exception('Requested certificate files not found at: ' . $path);
+
+        $certPaths = array();
+
+        $files = scandir($path);
+        foreach($files as $file)
+        {
+            if($file == '.' || $file == '..')
+                continue;
+
+            $certPaths[] = $file;
+        }
+
+        $cert = CertFactory::getCertFromFiles($certPaths);
+
+
 
     }
 
-    public function testSetHost()
+    public function testGetCertFromServer()
     {
 
     }
-
-    public function getParent()
-    {
-
-    }
-
 }
- 
