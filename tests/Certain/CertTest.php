@@ -14,9 +14,9 @@ namespace Certain\Test;
 //use Certain\Cert;
 use Certain\CertFactory;
 
-class CertTest extends \PHPUnit_Framework_TestCase {
-
-    static public function getTestChain($name)
+class CertTest extends \PHPUnit_Framework_TestCase
+{
+    public static function getTestChain($name)
     {
         $path = TESTING_DIRECTORY . '/Certs/' . $name . '/';
         if(!file_exists($path) || !is_dir($path))
@@ -25,8 +25,7 @@ class CertTest extends \PHPUnit_Framework_TestCase {
         $certPaths = array();
 
         $files = scandir($path);
-        foreach($files as $file)
-        {
+        foreach ($files as $file) {
             if($file == '.' || $file == '..')
                 continue;
 
@@ -35,7 +34,6 @@ class CertTest extends \PHPUnit_Framework_TestCase {
 
         return CertFactory::getCertFromFiles($certPaths);
     }
-
 
     public function testSetFromChain()
     {
@@ -61,4 +59,3 @@ class CertTest extends \PHPUnit_Framework_TestCase {
     }
 
 }
- 

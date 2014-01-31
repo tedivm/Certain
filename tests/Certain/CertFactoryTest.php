@@ -13,8 +13,8 @@ namespace Certain\Test;
 
 use Certain\CertFactory;
 
-class CertFactoryTest extends \PHPUnit_Framework_TestCase {
-
+class CertFactoryTest extends \PHPUnit_Framework_TestCase
+{
     public function testGetCertFromFiles()
     {
         $path = TESTING_DIRECTORY . '/Certs/Google/';
