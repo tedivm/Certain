@@ -26,7 +26,7 @@ class CertTest extends \PHPUnit_Framework_TestCase
 
         $files = scandir($path);
         foreach ($files as $file) {
-            if($file == '.' || $file == '..')
+            if(substr($file, -4) !== '.crt')
                 continue;
 
             $certPaths[] = $path . $file;
