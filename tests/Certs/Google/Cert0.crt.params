@@ -1,0 +1,140 @@
+array(12) {
+  ["name"]=>
+  string(66) "/C=US/ST=California/L=Mountain View/O=Google Inc/CN=www.google.com"
+  ["subject"]=>
+  array(5) {
+    ["C"]=>
+    string(2) "US"
+    ["ST"]=>
+    string(10) "California"
+    ["L"]=>
+    string(13) "Mountain View"
+    ["O"]=>
+    string(10) "Google Inc"
+    ["CN"]=>
+    string(14) "www.google.com"
+  }
+  ["hash"]=>
+  string(8) "dcdd9741"
+  ["issuer"]=>
+  array(3) {
+    ["C"]=>
+    string(2) "US"
+    ["O"]=>
+    string(10) "Google Inc"
+    ["CN"]=>
+    string(28) "Google Internet Authority G2"
+  }
+  ["version"]=>
+  int(2)
+  ["serialNumber"]=>
+  string(19) "7365544903199868429"
+  ["validFrom"]=>
+  string(13) "140115145324Z"
+  ["validTo"]=>
+  string(13) "140515000000Z"
+  ["validFrom_time_t"]=>
+  int(1389797604)
+  ["validTo_time_t"]=>
+  int(1400112000)
+  ["purposes"]=>
+  array(8) {
+    [1]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(9) "sslclient"
+    }
+    [2]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(9) "sslserver"
+    }
+    [3]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(11) "nssslserver"
+    }
+    [4]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(9) "smimesign"
+    }
+    [5]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(12) "smimeencrypt"
+    }
+    [6]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(7) "crlsign"
+    }
+    [7]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(3) "any"
+    }
+    [8]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(false)
+      [2]=>
+      string(10) "ocsphelper"
+    }
+  }
+  ["extensions"]=>
+  array(8) {
+    ["extendedKeyUsage"]=>
+    string(60) "TLS Web Server Authentication, TLS Web Client Authentication"
+    ["subjectAltName"]=>
+    string(18) "DNS:www.google.com"
+    ["authorityInfoAccess"]=>
+    string(92) "CA Issuers - URI:http://pki.google.com/GIAG2.crt
+OCSP - URI:http://clients1.google.com/ocsp
+"
+    ["subjectKeyIdentifier"]=>
+    string(59) "FC:EA:5F:A8:99:3F:92:19:F4:36:48:97:63:59:2B:41:CA:08:12:FB"
+    ["basicConstraints"]=>
+    string(8) "CA:FALSE"
+    ["authorityKeyIdentifier"]=>
+    string(66) "keyid:4A:DD:06:16:1B:BC:F6:68:B5:76:F5:81:B6:BB:62:1A:BA:5A:81:2F
+"
+    ["certificatePolicies"]=>
+    string(32) "Policy: 1.3.6.1.4.1.11129.2.5.1
+"
+    ["crlDistributionPoints"]=>
+    string(36) "URI:http://pki.google.com/GIAG2.crl
+"
+  }
+}
+.
