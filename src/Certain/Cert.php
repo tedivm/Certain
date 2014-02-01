@@ -26,17 +26,6 @@ class Cert
 
     protected $parameters = false;
 
-    public static function setFromChain($chain)
-    {
-        $self = array_shift($chain);
-        $parent = null;
-        if (count($chain) > 0) {
-            $parent = static::setFromChain(($chain));
-        }
-
-        return new static($self, $parent);
-    }
-
     public function __construct($cert, $parent = null)
     {
         $this->cert = $cert;

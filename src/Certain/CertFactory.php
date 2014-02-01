@@ -17,6 +17,16 @@ namespace Certain;
  */
 class CertFactory
 {
+    public static function getCertFromChain($chain)
+    {
+        $self = array_shift($chain);
+        $parent = null;
+        if (count($chain) > 0) {
+            $parent = static::getCertFromChain(($chain));
+        }
+
+        return new Cert($self, $parent);
+    }
 
     public static function getCertFromFiles($path)
     {
@@ -37,7 +47,7 @@ class CertFactory
             $chain[$index] = openssl_x509_read($certFile);
         }
 
-        $cert = Cert::setFromChain($chain);
+        $cert = static::getCertFromChain($chain);
 
         return $cert;
 
@@ -63,7 +73,7 @@ class CertFactory
             $chain = $params['options']['ssl']['peer_certificate_chain'];
         }
 
-        $cert = Cert::setFromChain($chain);
+        $cert = static::getCertFromChain($chain);
         $cert->setHost($host);
 
         return $cert;

@@ -35,11 +35,6 @@ class CertTest extends \PHPUnit_Framework_TestCase
         return CertFactory::getCertFromFiles($certPaths);
     }
 
-    public function testSetFromChain()
-    {
-
-    }
-
     public function testSetHost()
     {
 
