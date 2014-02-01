@@ -49,7 +49,6 @@ class CertTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, count($parameters), 'Parameters array not empty.');
     }
 
-
     public function testGetParent()
     {
         $cert = $this->getTestChain('Google');
