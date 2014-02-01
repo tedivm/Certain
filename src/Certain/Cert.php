@@ -20,19 +20,30 @@ class Cert
 
     protected $parent = false;
 
-    protected $host;
+    protected $cert = false;
 
-    protected $parameters;
+    protected $host = false;
 
-    public function setFromChain($chain)
+    protected $parameters = false;
+
+    public static function setFromChain($chain)
     {
         $self = array_shift($chain);
-        $this->parameters = $self[0];
-        $this->cert = $self[1];
-
+        $parent = null;
         if (count($chain) > 0) {
-            $this->parent = new self();
-            $this->parent->setFromChain($chain);
+            $parent = static::setFromChain(($chain));
+        }
+
+        return new static($self, $parent);
+    }
+
+    public function __construct($cert, $parent = null)
+    {
+        $this->cert = $cert;
+        $this->parameters = openssl_x509_parse($cert);
+
+        if (isset($parent)) {
+            $this->parent = $parent;
         }
     }
 
@@ -46,13 +57,14 @@ class Cert
         return isset($this->parent) ? $this->parent : false;
     }
 
-    public function verify()
+    public function getOpenSSLCert()
     {
+        return $this->cert;
     }
 
-    public function verifySignature()
+    public function getParameters()
     {
-
+        return $this->parameters;
     }
 
 }
