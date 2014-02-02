@@ -45,20 +45,18 @@ class Cert
 
         $this->cn = $parameters['subject']['CN'];
 
-        if(isset($parameters['validTo_time_t']))
-        {
+        if (isset($parameters['validTo_time_t'])) {
             $validTo = new DateTime();
             $validTo->setTimestamp($parameters['validTo_time_t']);
-        }else{
+        } else {
             $validTo = Util::getDateFromSSLFormat($parameters['validTo']);
         }
         $this->validTo = $validTo;
 
-        if(isset($parameters['validFrom_time_t']))
-        {
+        if (isset($parameters['validFrom_time_t'])) {
             $validFrom = new DateTime();
             $validFrom->setTimestamp($parameters['validFrom_time_t']);
-        }else{
+        } else {
             $validFrom = Util::getDateFromSSLFormat($parameters['validFrom']);
         }
         $this->validFrom = $validFrom;

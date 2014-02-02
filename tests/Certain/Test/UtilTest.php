@@ -11,8 +11,8 @@ namespace Certain\Test;
 
 use Certain\Util;
 
-class UtilTest extends \PHPUnit_Framework_TestCase {
-
+class UtilTest extends \PHPUnit_Framework_TestCase
+{
     public function testGetDateFromSSLFormat()
     {
         $fromDate = Util::getDateFromSSLFormat('140115145324Z');
@@ -22,4 +22,3 @@ class UtilTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals('1400112000', $validTo->getTimestamp(), 'Returns the right date.');
     }
 }
- 
