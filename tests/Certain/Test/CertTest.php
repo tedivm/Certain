@@ -35,18 +35,15 @@ class CertTest extends \PHPUnit_Framework_TestCase
         return CertFactory::getCertFromFiles($certPaths);
     }
 
-    public function testSetHost()
+
+    public function testConstruct()
     {
 
     }
 
-    public function testGetParameters()
+    public function testSetHost()
     {
-        $cert = static::getTestChain('Google');
 
-        $parameters = $cert->getParameters();
-        $this->assertInternalType('array', $parameters, 'getParameters returns array');
-        $this->assertGreaterThan(0, count($parameters), 'Parameters array not empty.');
     }
 
     public function testGetParent()
@@ -59,7 +56,22 @@ class CertTest extends \PHPUnit_Framework_TestCase
 
         $grandParent = $parent->getParent();
         $this->assertInstanceOf('\Certain\Cert', $grandParent, 'getCertFromFiles properly populates grand parent');
-
     }
 
+    public function testGetOpenSSLCert()
+    {
+        $cert = $this->getTestChain('Google');
+        $sslCert = $cert->getOpenSSLCert();
+        $this->assertInternalType('resource', $sslCert, 'Returns resource.');
+        $this->assertEquals('OpenSSL X.509', get_resource_type($sslCert), 'Resources is of type OpenSSL X.509');
+    }
+
+    public function testGetParameters()
+    {
+        $cert = static::getTestChain('Google');
+
+        $parameters = $cert->getParameters();
+        $this->assertInternalType('array', $parameters, 'getParameters returns array');
+        $this->assertGreaterThan(0, count($parameters), 'Parameters array not empty.');
+    }
 }
