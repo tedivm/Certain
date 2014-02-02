@@ -26,7 +26,7 @@ class CertTest extends \PHPUnit_Framework_TestCase
 
         $files = scandir($path);
         foreach ($files as $file) {
-            if($file == '.' || $file == '..')
+            if(substr($file, -4) !== '.crt')
                 continue;
 
             $certPaths[] = $path . $file;
@@ -35,14 +35,18 @@ class CertTest extends \PHPUnit_Framework_TestCase
         return CertFactory::getCertFromFiles($certPaths);
     }
 
-    public function testSetFromChain()
+    public function testSetHost()
     {
 
     }
 
-    public function testSetHost()
+    public function testGetParameters()
     {
+        $cert = static::getTestChain('Google');
 
+        $parameters = $cert->getParameters();
+        $this->assertInternalType('array', $parameters, 'getParameters returns array');
+        $this->assertGreaterThan(0, count($parameters), 'Parameters array not empty.');
     }
 
     public function testGetParent()

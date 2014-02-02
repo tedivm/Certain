@@ -17,6 +17,16 @@ namespace Certain;
  */
 class CertFactory
 {
+    public static function getCertFromChain($chain)
+    {
+        $self = array_shift($chain);
+        $parent = null;
+        if (count($chain) > 0) {
+            $parent = static::getCertFromChain(($chain));
+        }
+
+        return new Cert($self, $parent);
+    }
 
     public static function getCertFromFiles($path)
     {
@@ -34,14 +44,10 @@ class CertFactory
             }
 
             $certFile = file_get_contents($certPath);
-            $x509 = openssl_x509_read($certFile);
-            $certParameters = openssl_x509_parse($x509);
-
-            $chain[$index] = array($x509, $certParameters);
+            $chain[$index] = openssl_x509_read($certFile);
         }
 
-        $cert = new Cert();
-        $cert->setFromChain($chain);
+        $cert = static::getCertFromChain($chain);
 
         return $cert;
 
@@ -62,19 +68,12 @@ class CertFactory
         $sslParms = $params['options']['ssl'];
 
         if (!isset($sslParms['peer_certificate_chain']) || count($sslParms['peer_certificate_chain']) < 1) {
-            $rawChain = array($params['options']['ssl']['peer_certificate']);
+            $chain = array($params['options']['ssl']['peer_certificate']);
         } else {
-            $rawChain = $params['options']['ssl']['peer_certificate_chain'];
+            $chain = $params['options']['ssl']['peer_certificate_chain'];
         }
 
-        $chain = array();
-        foreach ($rawChain as $rawCert) {
-            $rawCertInfo = openssl_x509_parse($rawCert);
-            $chain[] = array($rawCert, $rawCertInfo);
-        }
-
-        $cert =  new Cert();
-        $cert->setFromChain($chain);
+        $cert = static::getCertFromChain($chain);
         $cert->setHost($host);
 
         return $cert;

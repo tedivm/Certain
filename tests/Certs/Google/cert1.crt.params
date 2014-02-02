@@ -1,0 +1,132 @@
+array(12) {
+  ["name"]=>
+  string(50) "/C=US/O=Google Inc/CN=Google Internet Authority G2"
+  ["subject"]=>
+  array(3) {
+    ["C"]=>
+    string(2) "US"
+    ["O"]=>
+    string(10) "Google Inc"
+    ["CN"]=>
+    string(28) "Google Internet Authority G2"
+  }
+  ["hash"]=>
+  string(8) "d76c6500"
+  ["issuer"]=>
+  array(3) {
+    ["C"]=>
+    string(2) "US"
+    ["O"]=>
+    string(13) "GeoTrust Inc."
+    ["CN"]=>
+    string(18) "GeoTrust Global CA"
+  }
+  ["version"]=>
+  int(2)
+  ["serialNumber"]=>
+  string(6) "146025"
+  ["validFrom"]=>
+  string(13) "130405151555Z"
+  ["validTo"]=>
+  string(13) "150404151555Z"
+  ["validFrom_time_t"]=>
+  int(1365174955)
+  ["validTo_time_t"]=>
+  int(1428160555)
+  ["purposes"]=>
+  array(8) {
+    [1]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "sslclient"
+    }
+    [2]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "sslserver"
+    }
+    [3]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(11) "nssslserver"
+    }
+    [4]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "smimesign"
+    }
+    [5]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(12) "smimeencrypt"
+    }
+    [6]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(7) "crlsign"
+    }
+    [7]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(3) "any"
+    }
+    [8]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(10) "ocsphelper"
+    }
+  }
+  ["extensions"]=>
+  array(7) {
+    ["authorityKeyIdentifier"]=>
+    string(66) "keyid:C0:7A:98:68:8D:89:FB:AB:05:64:0C:11:7D:AA:7D:65:B8:CA:CC:4E
+"
+    ["subjectKeyIdentifier"]=>
+    string(59) "4A:DD:06:16:1B:BC:F6:68:B5:76:F5:81:B6:BB:62:1A:BA:5A:81:2F"
+    ["basicConstraints"]=>
+    string(18) "CA:TRUE, pathlen:0"
+    ["keyUsage"]=>
+    string(26) "Certificate Sign, CRL Sign"
+    ["crlDistributionPoints"]=>
+    string(46) "URI:http://crl.geotrust.com/crls/gtglobal.crl
+"
+    ["authorityInfoAccess"]=>
+    string(45) "OCSP - URI:http://gtglobal-ocsp.geotrust.com
+"
+    ["certificatePolicies"]=>
+    string(32) "Policy: 1.3.6.1.4.1.11129.2.5.1
+"
+  }
+}

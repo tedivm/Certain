@@ -1,0 +1,130 @@
+array(12) {
+  ["name"]=>
+  string(43) "/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA"
+  ["subject"]=>
+  array(3) {
+    ["C"]=>
+    string(2) "US"
+    ["O"]=>
+    string(13) "GeoTrust Inc."
+    ["CN"]=>
+    string(18) "GeoTrust Global CA"
+  }
+  ["hash"]=>
+  string(8) "7999be0d"
+  ["issuer"]=>
+  array(3) {
+    ["C"]=>
+    string(2) "US"
+    ["O"]=>
+    string(7) "Equifax"
+    ["OU"]=>
+    string(36) "Equifax Secure Certificate Authority"
+  }
+  ["version"]=>
+  int(2)
+  ["serialNumber"]=>
+  string(7) "1227750"
+  ["validFrom"]=>
+  string(13) "020521040000Z"
+  ["validTo"]=>
+  string(13) "180821040000Z"
+  ["validFrom_time_t"]=>
+  int(1021953600)
+  ["validTo_time_t"]=>
+  int(1534824000)
+  ["purposes"]=>
+  array(8) {
+    [1]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "sslclient"
+    }
+    [2]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "sslserver"
+    }
+    [3]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(11) "nssslserver"
+    }
+    [4]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(9) "smimesign"
+    }
+    [5]=>
+    array(3) {
+      [0]=>
+      bool(false)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(12) "smimeencrypt"
+    }
+    [6]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(7) "crlsign"
+    }
+    [7]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(3) "any"
+    }
+    [8]=>
+    array(3) {
+      [0]=>
+      bool(true)
+      [1]=>
+      bool(true)
+      [2]=>
+      string(10) "ocsphelper"
+    }
+  }
+  ["extensions"]=>
+  array(6) {
+    ["authorityKeyIdentifier"]=>
+    string(66) "keyid:48:E6:68:F9:2B:D2:B2:95:D7:47:D8:23:20:10:4F:33:98:90:9F:D4
+"
+    ["subjectKeyIdentifier"]=>
+    string(59) "C0:7A:98:68:8D:89:FB:AB:05:64:0C:11:7D:AA:7D:65:B8:CA:CC:4E"
+    ["basicConstraints"]=>
+    string(7) "CA:TRUE"
+    ["keyUsage"]=>
+    string(26) "Certificate Sign, CRL Sign"
+    ["crlDistributionPoints"]=>
+    string(46) "URI:http://crl.geotrust.com/crls/secureca.crl
+"
+    ["certificatePolicies"]=>
+    string(79) "Policy: X509v3 Any Policy
+  CPS: https://www.geotrust.com/resources/repository
+"
+  }
+}

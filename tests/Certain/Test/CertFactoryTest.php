@@ -15,6 +15,11 @@ use Certain\CertFactory;
 
 class CertFactoryTest extends \PHPUnit_Framework_TestCase
 {
+    public function testGetCertFromChain()
+    {
+
+    }
+
     public function testGetCertFromFiles()
     {
         $path = TESTING_DIRECTORY . '/Certs/Google/';
