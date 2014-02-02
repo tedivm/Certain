@@ -35,12 +35,9 @@ class CertFactory
 
         $chain = array();
         foreach ($path as $index => $certPath) {
-            if (!file_exists($certPath)) {
-                return false;
-            }
 
-            if (!is_readable($certPath)) {
-                return false;
+            if (!file_exists($certPath) || !is_readable($certPath)) {
+                throw new \RuntimeException('Path to cert is not accessible: ' . $certPath);
             }
 
             $certFile = file_get_contents($certPath);
@@ -60,8 +57,14 @@ class CertFactory
         $options['ssl']['capture_peer_cert'] = true;
         $context = stream_context_create($options);
 
+        $timeout = defined('CERTAIN_TIMEOUT') && is_numeric(CERTAIN_TIMEOUT) ? CERTAIN_TIMEOUT : 30;
+
         $uri = 'ssl://' . $host . ':' . $port;
-        $stream = stream_socket_client($uri, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
+        $stream = @stream_socket_client($uri, $errorNumber, $errorString, $timeout, STREAM_CLIENT_CONNECT, $context);
+
+        if ($stream == false) {
+            throw new \RuntimeException('Error getting chain from server: ' . $errorNumber . ' ' . $errorString);
+        }
 
         $params = stream_context_get_params($stream);
 
