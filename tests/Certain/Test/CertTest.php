@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Certain package.
  *
@@ -73,5 +72,27 @@ class CertTest extends \PHPUnit_Framework_TestCase
         $parameters = $cert->getParameters();
         $this->assertInternalType('array', $parameters, 'getParameters returns array');
         $this->assertGreaterThan(0, count($parameters), 'Parameters array not empty.');
+    }
+
+    public function testGetValidFrom()
+    {
+        $cert = $this->getTestChain('Google');
+        $validFrom = $cert->getValidFrom();
+        $this->assertInstanceOf('\DateTime', $validFrom, 'ValidFrom is DateTime.');
+        $this->assertEquals('1389797604', $validFrom->getTimestamp(), 'Returns right timestamp.');
+    }
+
+    public function testGetValidTo()
+    {
+        $cert = $this->getTestChain('Google');
+        $validTo = $cert->getValidTo();
+        $this->assertInstanceOf('\DateTime', $validTo, 'ValidFrom is DateTime.');
+        $this->assertEquals('1400112000', $validTo->getTimestamp(), 'Returns right timestamp.');
+    }
+
+    public function testGetCommonName()
+    {
+        $cert = $this->getTestChain('Google');
+        $this->assertEquals('www.google.com', $cert->getCommonName());
     }
 }
