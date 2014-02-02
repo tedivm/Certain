@@ -13,7 +13,6 @@ namespace Certain\Test;
 
 use Certain\CertFactory;
 
-
 class CertFactoryTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetCertFromChain()
@@ -68,7 +67,6 @@ class CertFactoryTest extends \PHPUnit_Framework_TestCase
         );
         CertFactory::getCertFromFiles($files);
     }
-
 
     public function testGetCertFromServer()
     {
