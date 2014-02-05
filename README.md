@@ -3,6 +3,13 @@
 [![Latest Stable Version](https://poser.pugx.org/tedivm/Certain/v/stable.png)](https://packagist.org/packages/tedivm/Certain)
 [![Total Downloads](https://poser.pugx.org/tedivm/Certain/downloads.png)](https://packagist.org/packages/tedivm/Certain)
 
+Certain is a library designed for checking SSL Certificates. It takes
+certificates either directly or from the server hosting them and checks the
+entire chain for errors.
+
+It is currently grossly unstable and being developed actively- feel free to
+contribute!
+
 ## Installing
 
 ### Composer
